@@ -25,6 +25,11 @@ public class StudentController {
         return studentService.fetchStudents();
     }
 
+    @PostMapping("/login")
+    public String login(@RequestBody Student student){
+        return studentService.verifyUser(student);
+    }
+
     @GetMapping("/csrf-token")
     public CsrfToken getCsrfToken(HttpServletRequest request){
         return (CsrfToken) request.getAttribute("_csrf");
